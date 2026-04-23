@@ -1,6 +1,9 @@
-# Archivos temporales
+# Carpetas temporales
 temp/
+
+# archivos de log
 *.log
 
-# Configuración local
+# configuracion local
 config.local
+
