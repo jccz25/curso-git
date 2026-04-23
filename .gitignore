@@ -1,0 +1,6 @@
+# Archivos temporales
+temp/
+*.log
+
+# Configuración local
+config.local
