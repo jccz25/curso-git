@@ -5,3 +5,5 @@ Este repositorio es para aprender Git bien hecho.
 - Commits
 - Conflictos
 --> aqui voy a agragr esta linnea. y eliminares la que dice ramas
+## Rama develop
+Aquí se trabaja el desarrollo diario.
