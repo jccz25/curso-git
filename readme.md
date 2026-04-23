@@ -1,7 +1,7 @@
 #Curso profesional de git
 Este repositorio es para aprender Git bien hecho.
 ## Temas a aprender
-- Aqui vamos a generar un pedillo. Estados de archivos
+- Aqui vamos a generar un pedillo. Estados de archivos conflictos
 - Commits
 - Conflictos
 --> aqui voy a agragr esta linnea. y eliminares la que dice ramas
