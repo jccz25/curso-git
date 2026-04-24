@@ -9,6 +9,5 @@ Este repositorio es para aprender Git bien hecho.
 Aquí se trabaja el desarrollo diario.
 
 ## "AQUI TAMBIEN" Feature: README mejorado "CONFLICTO"
->>>>>>> feature/conflicto-2
 Este cambio se está desarrollando en una rama feature.
 
