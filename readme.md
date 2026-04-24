@@ -10,4 +10,4 @@ Aquí se trabaja el desarrollo diario.
 
 ## "AQUI TAMBIEN" Feature: README mejorado "CONFLICTO"
 Este cambio se está desarrollando en una rama feature.
-
+algo para rebase.
