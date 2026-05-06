@@ -1,6 +1,8 @@
 package com.jccz25.catalogo.controller;
 
 import com.jccz25.catalogo.model.Producto;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
@@ -41,15 +43,27 @@ public class ProductoController {
         return productos;
     }
     
-    // 2️⃣ OBTENER POR ID
-    @GetMapping("/{id}")
-    public Producto obtenerPorId(@PathVariable Long id) {
+    //// 2️⃣ OBTENER POR ID
+    //@GetMapping("/{id}")
+    //public Producto obtenerPorId(@PathVariable Long id) {
+//
+  //      return productos.stream()
+    //            .filter(p -> p.getId().equals(id))
+      //          .findFirst()
+        //        .orElse(null);
+   // }
 
-        return productos.stream()
-                .filter(p -> p.getId().equals(id))
-                .findFirst()
-                .orElse(null);
+    @GetMapping("/{id}")
+    public ResponseEntity<Producto> obtenerPorId(@PathVariable Long id) {
+
+    return productos.stream()
+            .filter(p -> p.getId().equals(id))
+            .findFirst()
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
     }
+
+
 
     
     // 3️⃣ CREAR PRODUCTO
@@ -61,6 +75,43 @@ public class ProductoController {
 
         return producto;
     }
+
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Producto> actualizarProducto(
+            @PathVariable Long id,
+            @RequestBody Producto productoActualizado) {
+
+        for (Producto p : productos) {
+            if (p.getId().equals(id)) {
+                p.setNombre(productoActualizado.getNombre());
+                p.setDescripcion(productoActualizado.getDescripcion());
+                p.setPrecio(productoActualizado.getPrecio());
+                p.setCategoria(productoActualizado.getCategoria());
+                p.setStock(productoActualizado.getStock());
+                p.setActivo(productoActualizado.getActivo());
+
+                return ResponseEntity.ok(p);
+            }
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
+
+        boolean eliminado = productos.removeIf(p -> p.getId().equals(id));
+
+        if (eliminado) {
+            return ResponseEntity.noContent().build();
+        }
+
+        return ResponseEntity.notFound().build();
+    }
+
+
 
 
 }
