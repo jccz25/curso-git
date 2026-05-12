@@ -1,0 +1,57 @@
+<h2>Nuevo producto</h2>
+
+<form [formGroup]="form" (ngSubmit)="guardar()">
+
+  <div>
+    <label>Nombre</label><br>
+    <input type="text" formControlName="nombre">
+  </div>
+
+  <div>
+    <label>Precio</label><br>
+    <input type="number" formControlName="precio">
+  </div>
+
+  <div>
+    <label>Stock</label><br>
+    <input type="number" formControlName="stock">
+  </div>
+
+  <div>
+  <label>Descripción</label><br>
+  <input type="text" formControlName="descripcion">
+</div>
+
+<div>
+  <label>Categoría</label><br>
+  <input type="text" formControlName="categoria">
+</div>
+
+<div>
+  <label>Activo</label>
+  <input type="checkbox" formControlName="activo">
+</div>
+
+  <button type="submit" [disabled]="form.invalid">
+    Guardar
+  </button>
+</form>
+
+<div *ngIf="mensaje" style="color:green; margin-top:10px">
+  {{ mensaje }}
+</div>
+
+<div *ngIf="error" style="color:red; margin-top:10px">
+  {{ error }}
+</div>
+
+<h3>Reporte de productos (PDF)</h3>
+
+<label>Categoría</label><br>
+<input type="text" [(ngModel)]="categoriaReporte" placeholder="Ropa">
+
+<br><br>
+<button (click)="generarPDF()">Generar PDF</button>
+
+<br><br>
+
