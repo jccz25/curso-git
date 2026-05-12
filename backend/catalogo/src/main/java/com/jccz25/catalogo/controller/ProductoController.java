@@ -3,10 +3,13 @@ package com.jccz25.catalogo.controller;
 import com.jccz25.catalogo.model.Producto;
 import com.jccz25.catalogo.service.ProductoService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.*;
+import jakarta.validation.Valid;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {
@@ -30,14 +33,14 @@ public class ProductoController {
     }
 
     @PostMapping
-    public ResponseEntity<Producto> crear(@RequestBody Producto producto) {
+    public ResponseEntity<Producto> crear(@Valid @RequestBody Producto producto) {
         return ResponseEntity.ok(productoService.crear(producto));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Producto> actualizar(
             @PathVariable Long id,
-            @RequestBody Producto producto) {
+            @Valid @RequestBody Producto producto) {
 
         return productoService.actualizar(id, producto)
                 .map(ResponseEntity::ok)

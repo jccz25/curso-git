@@ -17,7 +17,9 @@ public class ProductoService {
     }
 
     public List<Producto> listar() {
-        return repository.findAll();
+        List<Producto> productos = repository.findAll();
+        System.out.println("Productos encontrados: " + productos.size());
+        return productos;
     }
 
     public Optional<Producto> obtenerPorId(Long id) {
