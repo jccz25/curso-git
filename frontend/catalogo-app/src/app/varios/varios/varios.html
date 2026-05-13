@@ -1,0 +1,68 @@
+<!-- <h2>Seleccionar continente</h2>
+
+<select [(ngModel)]="continenteSeleccionado">
+  <option value="">-- Selecciona un continente --</option>
+
+  <option *ngFor="let c of continentes" [value]="c.id">
+    {{ c.nombreContinente }}
+  </option>
+
+</select> -->
+
+
+<!-- <h2>Países por continente</h2>
+
+
+<label>Continente</label><br>
+<select [(ngModel)]="continenteSeleccionado"
+        (change)="onContinenteChange()">
+
+  <option value="">-- Selecciona un continente --</option>
+
+  <option *ngFor="let c of continentes" [value]="c.id">
+    {{ c.nombreContinente }}
+  </option>
+
+</select>
+
+<br><br>
+
+<label>País</label><br>
+<select [disabled]="!paises.length">
+
+  <option value="">-- Selecciona un país --</option>
+
+  <option *ngFor="let p of paises">
+    {{ p.nombrePais }}
+  </option>
+
+</select> -->
+
+<h2>Países por continente (Reactive Forms)</h2>
+
+<form [formGroup]="form">
+
+  <!-- CONTINENTE -->
+  <label>Continente</label><br>
+  <select formControlName="continente">
+    <option value="">-- Selecciona uno --</option>
+
+    <option *ngFor="let c of continentes" [value]="c.id">
+      {{ c.nombreContinente }}
+    </option>
+  </select>
+
+  <br><br>
+
+  <!-- PAISES -->
+  <label>País</label><br>
+  <select formControlName="pais" [disabled]="!paises.length">
+    <option value="">-- Selecciona uno --</option>
+
+    <option *ngFor="let p of paises" [value]="p.id">
+      {{ p.nombrePais }}
+    </option>
+  </select>
+
+</form>
+
