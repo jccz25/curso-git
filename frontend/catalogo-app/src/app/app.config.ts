@@ -11,13 +11,21 @@ export const appConfig: ApplicationConfig = {
 };
 */
 
-import { ApplicationConfig } from '@angular/core';
-import { provideHttpClient } from '@angular/common/http';
+// import { ApplicationConfig } from '@angular/core';
+// import { provideHttpClient } from '@angular/common/http';
+
+// export const appConfig: ApplicationConfig = {
+//   providers: [
+//     provideHttpClient()
+//   ]
+// };
 
 
-export const appConfig: ApplicationConfig = {
+import { provideRouter } from '@angular/router';
+import { routes } from './app.routes';
+
+export const appConfig = {
   providers: [
-    provideHttpClient()
+    provideRouter(routes)
   ]
 };
-

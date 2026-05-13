@@ -38,11 +38,11 @@
 
 </select> -->
 
-<h2>Países por continente (Reactive Forms)</h2>
+<!-- <h2>Países por continente (Reactive Forms)</h2>
 
 <form [formGroup]="form">
 
-  <!-- CONTINENTE -->
+
   <label>Continente</label><br>
   <select formControlName="continente">
     <option value="">-- Selecciona uno --</option>
@@ -54,7 +54,6 @@
 
   <br><br>
 
-  <!-- PAISES -->
   <label>País</label><br>
   <select formControlName="pais" [disabled]="!paises.length">
     <option value="">-- Selecciona uno --</option>
@@ -64,5 +63,82 @@
     </option>
   </select>
 
-</form>
+</form> -->
 
+<!-- <div class="container mt-4">
+
+  <h2 class="mb-4">Países por continente</h2>
+
+  <form [formGroup]="form">
+
+    <div class="mb-3">
+      <label class="form-label">Continente</label>
+      <select class="form-select" formControlName="continente">
+        <option value="">-- Selecciona uno --</option>
+
+        <option *ngFor="let c of continentes" [value]="c.id">
+          {{ c.nombreContinente }}
+        </option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">País</label>
+      <select class="form-select" formControlName="pais"
+              [disabled]="!paises.length">
+
+        <option value="">-- Selecciona uno --</option>
+
+        <option *ngFor="let p of paises" [value]="p.id">
+          {{ p.nombrePais }}
+        </option>
+      </select>
+    </div>
+
+  </form>
+
+</div> -->
+
+<div class="card mt-4 shadow-sm">
+
+  <div class="card-header bg-info text-white">
+    <strong>Países por continente</strong>
+  </div>
+
+  <div class="card-body">
+
+    <form [formGroup]="form">
+
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Continente</label>
+          <select class="form-select" formControlName="continente">
+            <option value="">-- Selecciona --</option>
+            <option *ngFor="let c of continentes" [value]="c.id">
+              {{ c.nombreContinente }}
+            </option>
+          </select>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">País</label>
+          <select class="form-select"
+                  formControlName="pais"
+                  [disabled]="!paises.length">
+
+            <option value="">-- Selecciona --</option>
+
+            <option *ngFor="let p of paises" [value]="p.id">
+              {{ p.nombrePais }}
+            </option>
+
+          </select>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>

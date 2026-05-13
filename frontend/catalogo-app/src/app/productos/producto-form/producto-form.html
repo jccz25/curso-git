@@ -1,4 +1,4 @@
-<h2>Nuevo producto</h2>
+<!-- <h2>Nuevo producto</h2>
 
 <form [formGroup]="form" (ngSubmit)="guardar()">
 
@@ -32,7 +32,7 @@
   <input type="checkbox" formControlName="activo">
 </div>
 
-  <button type="submit" [disabled]="form.invalid">
+  <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
     Guardar
   </button>
 </form>
@@ -53,5 +53,52 @@
 <br><br>
 <button (click)="generarPDF()">Generar PDF</button>
 
-<br><br>
+<br><br> -->
 
+
+<div class="card shadow-sm">
+
+  <div class="card-header bg-primary text-white">
+    <strong>Nuevo Producto</strong>
+  </div>
+
+  <div class="card-body">
+
+    <form [formGroup]="form" (ngSubmit)="guardar()">
+
+      <div class="row">
+
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" formControlName="nombre">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Precio</label>
+          <input type="number" class="form-control" formControlName="precio">
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <label class="form-label">Stock</label>
+          <input type="number" class="form-control" formControlName="stock">
+        </div>
+
+      </div>
+
+      <button class="btn btn-success">
+        Guardar
+      </button>
+
+    </form>
+
+    <!-- MENSAJES -->
+    <div *ngIf="mensaje" class="alert alert-success mt-3">
+      {{ mensaje }}
+    </div>
+
+    <div *ngIf="error" class="alert alert-danger mt-3">
+      {{ error }}
+    </div>
+
+  </div>
+</div>
